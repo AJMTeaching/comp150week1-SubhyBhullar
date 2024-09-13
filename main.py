@@ -116,17 +116,17 @@ def merge_lists(list1: list, list2: list) -> list:
            else:
              i1 += 1
         else:
-            merged_list.append(list2)[i2:])
-            if i2 + 1 == len(list2):
-                for item in list1[i1:]:
+            merged_list.append(list2[i2:])
+    if i2 + 1 == len(list2):
+            for item in list1[i1:]:
                     merged_list.append(item)
             else:
-               i2 += 1
-    print(f"{i1=} | {i2=} | {list1[i1]=} | {list2[i2]=} | {merged_list=}")
-return merged_list  
+                i2 += 1
+                print(f"{i1=} | {i2=} | {list1[i1]=} | {list2[i2]=} | {merged_list=}")
+                return merged_list  
     # TODO: Implement this function
     pass
-
+  
 
 # Unit Tests for merge_lists
 def test_merge_lists():
