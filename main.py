@@ -18,7 +18,7 @@ print("Reversed list:", my_list)
 
 # Problem 2
 1.Create a dictionary called person with keys 'name', 'age', 'job' and values 'John', 30, 'teacher'.
-person = {'name': 'John', 'age': 30, 'job': 'teacher'}
+person = {"name": 'John', 'age': 30, 'job': "teacher"}
 2.Print the value corresponding to the 'job' key.
 print("Job:", person['job'])
 3.Add a new key-value pair: 'city': 'Paris' to the person dictionary. Print the updated dictionary.
@@ -99,30 +99,31 @@ def merge_lists(list1: list, list2: list) -> list:
     Returns:
     - list: A new sorted list containing all elements from list1 and list2
     """
+    print(f"{list1=}::{list2=}")
+    if not list1:
+        return list2
+    if not list2:
+        return list1
     merged_list = []
-    index1, index2 = 0, 0
-
-    # Compare elements from both lists and add the smaller one to merged_list
-    while index1 < len(list1) and index2 < len(list2):
-        if list1[index1] <= list2[index2]:
-            merged_list.append(list1[index1])
-            index1 += 1
+    i1, i2 = 0, 0
+    print(f"{i1=} | {i2=} | {list1[i1]=} | {list2[i2]=} | {merged_list=}")
+    while len(merged_list) < len(list1) + len(list2):
+        if list1[i1] <  list2[i2]:
+           merged_list.append(list1[i1])
+           if i1 + 1 == len(list1):
+              for item in list2[i2:]:
+                  merged_list.append(item)
+           else:
+             i1 += 1
         else:
-            merged_list.append(list2[index2])
-            index2 += 1
-
-    # If there are remaining elements in list1, add them to merged_list
-    while index1 < len(list1):
-        merged_list.append(list1[index1])
-        index1 += 1
-
-    # If there are remaining elements in list2, add them to merged_list
-    while index2 < len(list2):
-        merged_list.append(list2[index2])
-        index2 += 1
-
-    return merged_list
-
+            merged_list.append(list2)[i2:])
+            if i2 + 1 == len(list2):
+                for item in list1[i1:]:
+                    merged_list.append(item)
+            else:
+               i2 += 1
+    print(f"{i1=} | {i2=} | {list1[i1]=} | {list2[i2]=} | {merged_list=}")
+return merged_list  
     # TODO: Implement this function
     pass
 
