@@ -155,11 +155,10 @@ def word_lengths(words: list) -> list:
     Returns:
     - list: A list containing the lengths of the words
     """
-    lengths = []  # Initialize an empty list to store lengths
+    list_of_word_lengths = []
     for word in words:
-        lengths.append(len(word))  # Calculate and append the length of each word
-    return lengths
-
+        list_of_word_lengths.append(len(word))
+    return list_of_word_lengths
     # TODO: Implement this function
     pass
 
@@ -224,16 +223,11 @@ def intersection(list1: list, list2: list) -> list:
     Returns:
     - list: The intersection of the two lists
     """
-     # Initialize an empty list to store the intersection
-    result = []
-    
-    # Loop through each element in list1
-    for item1 in list1:
-        # Check if the element is in list2 and not already in result to avoid duplicates
-        if item1 in list2 and item1 not in result:
-            result.append(item1)
-    
-    return result
+    overlapped_list = []
+    for item in list1:
+        if item in list2:
+            overlapped_list.append(item)
+    return list(set(overlapped_list))
     # TODO: Implement this function
     pass
 
