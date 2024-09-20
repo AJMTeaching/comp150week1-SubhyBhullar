@@ -2,32 +2,32 @@
 
 # Lab 1
 # Problem 1
-1. Create a list called my_list with the values [1, 5, 'apple', 20.5].
+#1. Create a list called my_list with the values [1, 5, 'apple', 20.5].
 my_list = [1, 5, 'apple', 20.5]
-2.Using indexing, print the value 'apple' from my_list.
+#.Using indexing, print the value 'apple' from my_list.
 print("Value at index 2:", my_list[2])
-3.Add the value 10 to the end of my_list using the append() method. Print the updated list.
+#3.Add the value 10 to the end of my_list using the append() method. Print the updated list.
 my_list.append(10)
 print("Updated list after append:", my_list)
-4.Remove the value 20.5 from my_list using the remove() method. Print the updated list.
+#4.Remove the value 20.5 from my_list using the remove() method. Print the updated list.
 my_list.remove(20.5)
 print("Updated list after remove:", my_list)
-5.Reverse the order of the elements in my_list using a method. Print the reversed list.
+#5.Reverse the order of the elements in my_list using a method. Print the reversed list.
 my_list = my_list[::-1]
 print("Reversed list:", my_list)
 
 # Problem 2
-1.Create a dictionary called person with keys 'name', 'age', 'job' and values 'John', 30, 'teacher'.
+#1.Create a dictionary called person with keys 'name', 'age', 'job' and values 'John', 30, 'teacher'.
 person = {'name': 'John', 'age': 30, 'job':'teacher'}
-2.Print the value corresponding to the 'job' key.
+#2.Print the value corresponding to the 'job' key.
 print("Job:", person['job'])
-3.Add a new key-value pair: 'city': 'Paris' to the person dictionary. Print the updated dictionary.
+#3.Add a new key-value pair: 'city': 'Paris' to the person dictionary. Print the updated dictionary.
 person['city'] = 'Paris'
 print("Updated dictionary after adding city:", person)
-4.Remove the 'age' key-value pair from person. Print the updated dictionary.
-del person('age')
+#4.Remove the 'age' key-value pair from person. Print the updated dictionary.
+del person['age']
 print("Updated dictionary after removing age:", person)
-5.Iterate through the person dictionary and print out each key-value pair on a separate line.
+#5.Iterate through the person dictionary and print out each key-value pair on a separate line.
 for key, value in person.items():
     print(f"{key}: {value}")
 # -----------------------------------------------------------------------------
@@ -139,7 +139,7 @@ def word_lengths(words: list) -> list:
     Returns:
     - list: A list containing the lengths of the words
     """
-    def get_word_lengths(words):
+
     lengths = []
     for word in words:
        lengths.append(len(word))
@@ -169,7 +169,6 @@ def reverse_string(s: str) -> str:
     Returns:
     - str: The reversed string
     """
-    def reverse_string(s):
     # Initialize an empty string to store the reversed result
     reversed_str = ""
     # Loop through the original string in reverse order
@@ -204,12 +203,12 @@ def intersection(list1: list, list2: list) -> list:
     Returns:
     - list: The intersection of the two lists
     """
-def find_overlap(list1, list2):
-   overlapped_list = []
-   for item in list1:
-    if item in list2:
-        overlapped_list.append(item)
-   return list(set(overlapped_list))
+
+    overlapped_list = []
+    for item in list1:
+        if item in list2:
+            overlapped_list.append(item)
+    return list(set(overlapped_list))
   
 
 # Unit Tests for intersection
