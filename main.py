@@ -5,7 +5,7 @@
 1. Create a list called my_list with the values [1, 5, 'apple', 20.5].
 my_list = [1, 5, 'apple', 20.5]
 2.Using indexing, print the value 'apple' from my_list.
-print(my_list[2])
+print("Value at index 2:", my_list[2])
 3.Add the value 10 to the end of my_list using the append() method. Print the updated list.
 my_list.append(10)
 print("Updated list after append:", my_list)
@@ -13,20 +13,20 @@ print("Updated list after append:", my_list)
 my_list.remove(20.5)
 print("Updated list after remove:", my_list)
 5.Reverse the order of the elements in my_list using a method. Print the reversed list.
-my_list.reverse()
+my_list = my_list[::-1]
 print("Reversed list:", my_list)
 
 # Problem 2
 1.Create a dictionary called person with keys 'name', 'age', 'job' and values 'John', 30, 'teacher'.
-person = {"name": 'John', 'age': 30, 'job': "teacher"}
+person = {'name': 'John', 'age': 30, 'job':'teacher'}
 2.Print the value corresponding to the 'job' key.
 print("Job:", person['job'])
 3.Add a new key-value pair: 'city': 'Paris' to the person dictionary. Print the updated dictionary.
 person['city'] = 'Paris'
-print("Updated dictionary:", person)
+print("Updated dictionary after adding city:", person)
 4.Remove the 'age' key-value pair from person. Print the updated dictionary.
-person.pop('age')
-print("Updated dictionary after removing 'age':", person)
+del person('age')
+print("Updated dictionary after removing age:", person)
 5.Iterate through the person dictionary and print out each key-value pair on a separate line.
 for key, value in person.items():
     print(f"{key}: {value}")
@@ -56,21 +56,13 @@ def count_vowels(s: str) -> int:
     Returns:
     - int: The number of vowels in the string
     """
-    # Define a set of vowels (both lowercase and uppercase)
-    vowels = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'}
-    
-    # Initialize counter
-    count = 0
-    
-    # Loop through the string
-    for char in s:
-        # Check if the character is a vowel
-        if char in vowels:
-            count += 1
-            
-    return count
-    # TODO: Implement this function
-    pass
+def count_vowels(s):
+   vowels = 'aeiouAEIOU'
+   count = 0
+   for char in s:
+       if char in vowels:
+           count += 1
+   return count 
 
 
 # Unit Tests for count_vowels
@@ -99,33 +91,25 @@ def merge_lists(list1: list, list2: list) -> list:
     Returns:
     - list: A new sorted list containing all elements from list1 and list2
     """
-    print(f"{list1=}::{list2=}")
-    if not list1:
-        return list2
-    if not list2:
-        return list1
-    merged_list = []
-    i1, i2 = 0, 0
-    print(f"{i1=} | {i2=} | {list1[i1]=} | {list2[i2]=} | {merged_list=}")
-    while len(merged_list) < len(list1) + len(list2):
-        if list1[i1] <  list2[i2]:
-           merged_list.append(list1[i1])
-           if i1 + 1 == len(list1):
-              for item in list2[i2:]:
-                  merged_list.append(item)
-           else:
-             i1 += 1
-        else:
-            merged_list.append(list2[i2:])
-    if i2 + 1 == len(list2):
-            for item in list1[i1:]:
-                    merged_list.append(item)
-            else:
-                i2 += 1
-                print(f"{i1=} | {i2=} | {list1[i1]=} | {list2[i2]=} | {merged_list=}")
-                return merged_list  
-    # TODO: Implement this function
-    pass
+def merge_sorted_lists(list1, list2):
+   merged = []
+   i, m = 0, 0
+   while i < len(list1) and m < len(list2):
+       if list1[i] <= list2[m]:
+        merged.append(list1[i])
+        i += 1
+   else:
+       merged.append(list2[m])
+       m += 1
+   # Append the remaining elements
+   while i < len(list1):
+       merged.append(list1[i])
+       i += 1
+   while m < len(list2):
+       merged.append(list2[m])
+       m+= 1
+   return merged 
+   
   
 
 # Unit Tests for merge_lists
@@ -155,12 +139,11 @@ def word_lengths(words: list) -> list:
     Returns:
     - list: A list containing the lengths of the words
     """
-    list_of_word_lengths = []
+    def get_word_lengths(words):
+    lengths = []
     for word in words:
-        list_of_word_lengths.append(len(word))
-    return list_of_word_lengths
-    # TODO: Implement this function
-    pass
+       lengths.append(len(word))
+    return lengths
 
 
 # Unit Tests for word_lengths
@@ -186,16 +169,14 @@ def reverse_string(s: str) -> str:
     Returns:
     - str: The reversed string
     """
-     # Initialize an empty string to store the reversed result
+    def reverse_string(s):
+    # Initialize an empty string to store the reversed result
     reversed_str = ""
-    
     # Loop through the original string in reverse order
     for i in range(len(s) - 1, -1, -1):
-        reversed_str += s[i]
-    
+       reversed_str += s[i]
     return reversed_str
-    # TODO: Implement this function
-    pass
+    
 
 
 # Unit Tests for reverse_string
@@ -223,14 +204,13 @@ def intersection(list1: list, list2: list) -> list:
     Returns:
     - list: The intersection of the two lists
     """
-    overlapped_list = []
-    for item in list1:
-        if item in list2:
-            overlapped_list.append(item)
-    return list(set(overlapped_list))
-    # TODO: Implement this function
-    pass
-
+def find_overlap(list1, list2):
+   overlapped_list = []
+   for item in list1:
+    if item in list2:
+        overlapped_list.append(item)
+   return list(set(overlapped_list))
+  
 
 # Unit Tests for intersection
 def test_intersection():
