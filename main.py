@@ -91,7 +91,7 @@ def merge_lists(list1: list, list2: list) -> list:
     Returns:
     - list: A new sorted list containing all elements from list1 and list2
     """
-def merge_sorted_lists(list1, list2):
+def merge_lists(list1, list2):
    merged = []
    i, m = 0, 0
    while i < len(list1) and m < len(list2):
